@@ -1,6 +1,7 @@
 html {
+    min-height: 100vh;
     background: #333333 url("img/background.jpg"); 
-    background-position: center 35%;
+    background-position: center 75%;
     background-size: cover;
     text-align: center;
     font-size: 14px;
@@ -21,7 +22,7 @@ body {
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.2) url("img/clock.png"); 
     background-size: cover;
-    margin: 100px auto;
+    margin: 120px auto;
     position: relative;
     padding: 2rem;
     box-shadow:
