@@ -1,1 +1,26 @@
-var _0x37ef=["\x67\x65\x74\x48\x6F\x75\x72\x73","\x67\x65\x74\x4D\x69\x6E\x75\x74\x65\x73","\x67\x65\x74\x53\x65\x63\x6F\x6E\x64\x73","\x6C\x6F\x6E\x67","\x6E\x75\x6D\x65\x72\x69\x63","\x30","\x69\x6E\x6E\x65\x72\x48\x54\x4D\x4C","\x2E\x64\x61\x74\x65","\x71\x75\x65\x72\x79\x53\x65\x6C\x65\x63\x74\x6F\x72","\x3A","\x20\x20\x20","\x72\x75","\x74\x6F\x4C\x6F\x63\x61\x6C\x65\x53\x74\x72\x69\x6E\x67","\x63\x6C\x6F\x63\x6B\x28\x29","\x2E\x73\x65\x63\x6F\x6E\x64\x2D\x68\x61\x6E\x64","\x2E\x6D\x69\x6E\x2D\x68\x61\x6E\x64","\x2E\x68\x6F\x75\x72\x2D\x68\x61\x6E\x64","\x74\x72\x61\x6E\x73\x66\x6F\x72\x6D","\x73\x74\x79\x6C\x65","\x72\x6F\x74\x61\x74\x65\x28","\x64\x65\x67\x29","\x73\x65\x74\x44\x61\x74\x65\x28\x29"];function clock(){var _0xf1d2x2= new Date();var _0xf1d2x3=_0xf1d2x2[_0x37ef[0]]();var _0xf1d2x4=_0xf1d2x2[_0x37ef[1]]();var _0xf1d2x5=_0xf1d2x2[_0x37ef[2]]();var _0xf1d2x6={month:_0x37ef[3],day:_0x37ef[4],weekday:_0x37ef[3]};if(_0xf1d2x3< 10){_0xf1d2x3= _0x37ef[5]+ _0xf1d2x3};if(_0xf1d2x4< 10){_0xf1d2x4= _0x37ef[5]+ _0xf1d2x4};if(_0xf1d2x5< 10){_0xf1d2x5= _0x37ef[5]+ _0xf1d2x5};document[_0x37ef[8]](_0x37ef[7])[_0x37ef[6]]= _0xf1d2x3+ _0x37ef[9]+ _0xf1d2x4+ _0x37ef[9]+ _0xf1d2x5+ _0x37ef[10]+ _0xf1d2x2[_0x37ef[12]](_0x37ef[11],_0xf1d2x6);setTimeout(_0x37ef[13],1000)}clock();function setDate(){var _0xf1d2x2= new Date();var _0xf1d2x3=_0xf1d2x2[_0x37ef[0]]();var _0xf1d2x4=_0xf1d2x2[_0x37ef[1]]();var _0xf1d2x5=_0xf1d2x2[_0x37ef[2]]();var _0xf1d2x8=document[_0x37ef[8]](_0x37ef[14]);var _0xf1d2x9=document[_0x37ef[8]](_0x37ef[15]);var _0xf1d2xa=document[_0x37ef[8]](_0x37ef[16]);var _0xf1d2xb=_0xf1d2x5* 6+ 90;var _0xf1d2xc=_0xf1d2x4* 6+ 90;var _0xf1d2xd=(_0xf1d2x3+ _0xf1d2x4/ 60)* 30+ 90;_0xf1d2x8[_0x37ef[18]][_0x37ef[17]]= (_0x37ef[19]+ _0xf1d2xb+ _0x37ef[20]);_0xf1d2x9[_0x37ef[18]][_0x37ef[17]]= (_0x37ef[19]+ _0xf1d2xc+ _0x37ef[20]);_0xf1d2xa[_0x37ef[18]][_0x37ef[17]]= (_0x37ef[19]+ _0xf1d2xd+ _0x37ef[20]);setTimeout(_0x37ef[21],1000)}setDate()
+const secondTime = document.querySelector(".second-hand");
+const minTime = document.querySelector(".min-hand");
+const hourTime = document.querySelector(".hour-hand");
+const date = document.querySelector(".date");
+
+setInterval(clock, 1000);
+
+function clock() {
+  const currentTime = new Date();
+
+  date.innerHTML = currentTime;
+
+  const seconds = currentTime.getSeconds();
+  const minutes = currentTime.getMinutes();
+  const hours = currentTime.getHours();
+
+  const secondDegree = (seconds / 60) * 360 + 90;
+  const minDegree = (secondDegree + minutes / 60) * 360 + 90;
+  const hourDegree = (minDegree + hours / 12) * 360 + 90;
+
+  secondTime.style.transform = `rotate(${secondDegree}deg)`;
+
+  minTime.style.transform = `rotate(${minDegree}deg)`;
+
+  hourTime.style.transform = `rotate(${hourDegree}deg)`;
+}
